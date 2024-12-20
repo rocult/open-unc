@@ -10,9 +10,10 @@
 		"watch:darklua": "darklua process out/init.luau dist/init.lua -w",
 		"build": "pnpm run build:rbx && pnpm run build:darklua",
 		"watch": "concurrently \"pnpm run watch:rbx\" \"pnpm run watch:darklua\"",
-		"lint": "eslint .",
-		"lint:fix": "eslint . --fix",
-		"format": "prettier --write ."
+		"lint": "eslint src",
+		"lint:fix": "eslint src --fix",
+		"format": "prettier src -c",
+		"format:fix": "prettier src --write"
 	},
 	"keywords": [],
 	"author": "",
