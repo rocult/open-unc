@@ -4,13 +4,12 @@
   "description": "",
   "main": "out/init.lua",
   "scripts": {
-    "build-rbx": "rbxtsc",
-    "watch-rbx": "rbxtsc -w",
-    "darklua": "darklua process out/init.luau dist/init.lua",
-    "darklua-watch": "darklua process out/init.luau dist/init.lua --watch",
-    "build": "pnpm run build-rbx && pnpm run darklua",
-    "watch": "concurrently \"pnpm run watch-rbx\" \"pnpm run darklua-watch\"",
-    "prepublishOnly": "pnpm run build"
+    "build:rbx": "rbxtsc",
+    "watch:rbx": "rbxtsc -w",
+    "build:darklua": "darklua process out/init.luau dist/init.lua",
+    "watch:darklua": "darklua process out/init.luau dist/init.lua -w",
+    "build": "pnpm run build:rbx && pnpm run build:darklua",
+    "watch": "concurrently \"pnpm run watch:rbx\" \"pnpm run watch:darklua\""
   },
   "keywords": [],
   "author": "",
