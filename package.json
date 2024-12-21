@@ -13,7 +13,8 @@
 		"lint": "eslint src",
 		"lint:fix": "eslint src --fix",
 		"format": "prettier src -c",
-		"format:fix": "prettier src --write"
+		"format:fix": "prettier src --write",
+		"fix": "pnpm run lint:fix && pnpm run format:fix"
 	},
 	"keywords": [],
 	"author": "",
@@ -30,6 +31,7 @@
 		"@eslint/eslintrc": "^3.2.0",
 		"@eslint/js": "^9.17.0",
 		"@rbxts/compiler-types": "3.0.0-types.0",
+		"@rbxts/services": "^1.5.5",
 		"@rbxts/types": "^1.0.813",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
 		"@typescript-eslint/parser": "^7.18.0",
