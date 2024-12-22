@@ -1,5 +1,6 @@
 import * as cache from "./cache"
 import * as closures from "./closures"
+import * as console from "./console"
 
 const SuccessCount = 0
 let TotalCount = 0
@@ -27,6 +28,7 @@ function test(name: string, f: Callback) {
 
 testMany(cache)
 testMany(closures)
+testMany(console)
 
 print(`Test results: ${math.floor(SuccessCount / TotalCount)}% oUNC (${SuccessCount} out of ${TotalCount})`)
 print("Failed:")
