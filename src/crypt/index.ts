@@ -5,6 +5,8 @@ export type AESType = "CBC" | "ECB" | "CTR" | "OFB" | "GCM"
  * Handles data encryption and decryption.
  */
 export namespace crypt {
+    const crypt = getgenv().crypt
+    
     /**
      * Base64 encryption and decryption.
      */
@@ -31,7 +33,6 @@ export namespace crypt {
      * @returns The decoded string of bytes.
      */
     export function base64decode(base64: string): string {
-        const crypt = getgenv().crypt
         assert(crypt.base64decode("dGVzdA==") === "test", "Base64 decoding failed")
         return false as unknown as string
     }
@@ -47,7 +48,6 @@ export namespace crypt {
      * @returns The encoded base64 string.
      */
     export function base64encode(base64: string): string {
-        const crypt = getgenv().crypt
         assert(crypt.base64encode("test") === "dGVzdA==", "Base64 encoding failed")
         return false as unknown as string
     }
@@ -66,7 +66,6 @@ export namespace crypt {
      * @returns The decrypted data.
      */
     export function decrypt(data: string, key: string, iv: string, mode: AESType): string {
-        const crypt = getgenv().crypt
         const [genKey, genIV] = [crypt.generatekey(), crypt.generatekey()]
         const [encrypted, _] = crypt.encrypt("test", genKey, genIV, "CBC")
         const decrypted = crypt.decrypt(encrypted, genKey, genIV, "CBC")
@@ -82,7 +81,6 @@ export namespace crypt {
      * @returns The encrypted data.
      */
     export function encrypt(data: string, key: string, iv?: string, mode?: AESType): LuaTuple<[string, string]> {
-        const crypt = getgenv().crypt
         const genKey = crypt.generatekey()
         const [encrypted, genIV] = crypt.encrypt("test", genKey, undefined, "CBC")
         assert(iv, "crypt.encrypt should return an IV")
@@ -98,7 +96,6 @@ export namespace crypt {
      * @returns The generated string.
      */
     export function generatebytes(length: number): string {
-        const crypt = getgenv().crypt
         const size = math.random(10, 100)
         const bytes = crypt.generatebytes(size)
         const decoded = crypt.base64decode(bytes)
@@ -115,7 +112,6 @@ export namespace crypt {
      * @returns The generated key.
      */
     export function generatekey(): string {
-        const crypt = getgenv().crypt
         const key = crypt.generatekey()
         assert(crypt.base64decode(key).size() === 32, "Generated key should be 32 bytes long when decoded")
         return false as unknown as string
@@ -129,7 +125,6 @@ export namespace crypt {
      * @returns The hashed data.
      */
     export function hash(data: string, algorithm: HashAlgorithm): string {
-        const crypt = getgenv().crypt
         const algorithms: HashAlgorithm[] = [
             "sha1",
             "sha384",
