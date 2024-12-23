@@ -29,6 +29,7 @@ function test(name: string, f: Callback) {
 testMany(cache)
 testMany(closures)
 testMany(console)
+testMany(debug)
 
 print(`Test results: ${math.floor(SuccessCount / TotalCount)}% oUNC (${SuccessCount} out of ${TotalCount})`)
 print("Failed:")

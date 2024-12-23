@@ -31,6 +31,7 @@ import {
     rconsolesettitle,
 } from "./console"
 import { base64_decode, base64_encode, crypt } from "./crypt"
+import { debug } from "./debug"
 
 declare global {
     function getgenv(): {
@@ -38,6 +39,7 @@ declare global {
         cloneref: typeof cloneref
         compareinstances: typeof compareinstances
         crypt: typeof crypt
+        debug: typeof debug
 
         checkcaller: typeof checkcaller
         clonefunction: typeof clonefunction

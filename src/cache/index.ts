@@ -1,4 +1,6 @@
 export namespace cache {
+    const cache = getgenv().cache
+
     /**
      * Invalidates `object` in the instance cache.
      * @param object The Roblox instance to invalidate.
@@ -10,7 +12,7 @@ export namespace cache {
     export function invalidate(object: Instance): void {
         const container = new Instance("Folder")
         const part = new Instance("Part", container)
-        getgenv().cache.invalidate(part)
+        cache.invalidate(part)
         assert(part !== container.FindFirstChild("Part"), "Reference `part` could not be invalidated")
     }
 
