@@ -6,7 +6,7 @@ export type AESType = "CBC" | "ECB" | "CTR" | "OFB" | "GCM"
  */
 export namespace crypt {
     const crypt = getgenv().crypt
-    
+
     /**
      * Base64 encryption and decryption.
      */
