@@ -32,6 +32,7 @@ import {
 } from "./console"
 import { base64_decode, base64_encode, crypt } from "./crypt"
 import { debug } from "./debug"
+import { cleardrawcache, Drawing, getrenderproperty, isrenderobj, setrenderproperty } from "./drawing"
 
 declare global {
     function getgenv(): {
@@ -40,6 +41,7 @@ declare global {
         compareinstances: typeof compareinstances
         crypt: typeof crypt
         debug: typeof debug
+        Drawing: typeof Drawing
 
         checkcaller: typeof checkcaller
         clonefunction: typeof clonefunction
@@ -72,6 +74,11 @@ declare global {
 
         base64_decode: typeof base64_decode
         base64_encode: typeof base64_encode
+
+        cleardrawcache: typeof cleardrawcache
+        getrenderproperty: typeof getrenderproperty
+        isrenderobj: typeof isrenderobj
+        setrenderproperty: typeof setrenderproperty
 
         getscriptbytecode: (script: Script) => string
     }
