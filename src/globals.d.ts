@@ -16,12 +16,28 @@ import {
     newcclosure,
     replaceclosure,
 } from "./closures"
+import {
+    consoleclear,
+    consolecreate,
+    consoleinput,
+    consoleprint,
+    consolesettitle,
+    rconsoleclear,
+    rconsolecreate,
+    rconsoledestroy,
+    rconsoleinput,
+    rconsolename,
+    rconsoleprint,
+    rconsolesettitle,
+} from "./console"
+import { base64_decode, base64_encode, crypt } from "./crypt"
 
 declare global {
     function getgenv(): {
         cache: typeof cache
         cloneref: typeof cloneref
         compareinstances: typeof compareinstances
+        crypt: typeof crypt
 
         checkcaller: typeof checkcaller
         clonefunction: typeof clonefunction
@@ -38,6 +54,22 @@ declare global {
         islclosure: typeof islclosure
         loadstring: typeof loadstring
         newcclosure: typeof newcclosure
+
+        rconsoleclear: typeof rconsoleclear
+        consoleclear: typeof consoleclear
+        rconsolecreate: typeof rconsolecreate
+        consolecreate: typeof consolecreate
+        rconsoledestroy: typeof rconsoledestroy
+        rconsoleinput: typeof rconsoleinput
+        consoleinput: typeof consoleinput
+        rconsoleprint: typeof rconsoleprint
+        consoleprint: typeof consoleprint
+        rconsolesettitle: typeof rconsolesettitle
+        rconsolename: typeof rconsolename
+        consolesettitle: typeof consolesettitle
+
+        base64_decode: typeof base64_decode
+        base64_encode: typeof base64_encode
 
         getscriptbytecode: (script: Script) => string
     }
